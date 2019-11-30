@@ -1,0 +1,26 @@
+#:include kv/homescreen.kv
+#:include kv/weatherscreen.kv
+#:include kv/newsscreen.kv
+#:include kv/tasksscreen.kv
+#:include kv/productivityscreen.kv
+#:import Clock kivy.clock.Clock
+#:import partial functools.partial
+#:import lorem lorem
+#:import toast kivymd.toast.toast
+#:import FadeTransition kivy.uix.screenmanager.FadeTransition
+
+BoxLayout:
+    ScreenManager:
+        id: screen_manager
+        transition: FadeTransition()
+        HomeScreen:
+            name: "home_screen"
+        WeatherScreen:
+            name: "weather_screen"
+        NewsScreen:
+            name: "news_screen"
+        TasksScreen:
+            id: tasks_screen
+            name: "tasks_screen"
+        ProductivityScreen:
+            name: "productivity_screen"

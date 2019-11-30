@@ -1,0 +1,54 @@
+<ProductivityScreen@Screen>:
+    #Images taken from Temps app
+    FloatLayout:
+        ScrollView:
+            size_hint: 1, .75
+            pos_hint: {"center_x": .5, "top": .95}
+            bar_width: dp(5)
+            GridLayout:
+                # This one should maybe be scrollable horizontally?
+                rows: 1
+                size_hint_x: None
+                width: self.minimum_width
+                col_default_width: '300dp'
+                col_force_default: True
+                spacing: dp(30)
+                WeatherImage:
+                    source: "images/weather.png"
+                    text: "Monday"
+                WeatherImage:
+                    source: "images/weather2.png"
+                    text: "Tuesday"
+                WeatherImage:
+                    source: "images/weather.png"
+                    text: "Wednesday"
+                WeatherImage:
+                    source: "images/weather2.png"
+                    text: "Thursday"
+                WeatherImage:
+                    source: "images/weather.png"
+                    text: "Friday"
+                WeatherImage:
+                    source: "images/weather2.png"
+                    text: "Saturday"
+                WeatherImage:
+                    source: "images/weather.png"
+                    text: "Sunday"
+                WeatherImage:
+                    source: "images/weather2.png"
+                    text: "Monday"
+        BoxLayout:
+            size_hint: 1, .2
+            spacing: dp(20)
+            padding: dp(20)
+            MDCard:
+                MDFlatButton:
+                    size_hint: 1, 1
+                    color: 0,0,0,1
+                    background_normal: "images/transparent.png"
+                    text: "Back"
+                    on_release:
+                        app.load_screen("home_screen")
+            Widget:
+            Widget:
+            Widget:

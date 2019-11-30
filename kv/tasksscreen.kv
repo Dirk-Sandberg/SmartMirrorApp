@@ -1,0 +1,103 @@
+<ContentForAnimCard@BoxLayout>:
+    is_completed: False
+    height: label.height + button.height + spacer.height
+    size_hint: 1, None
+    padding: dp(15), dp(15), dp(15), dp(15)
+    spacing: dp(15)
+    orientation: 'vertical'
+    MDLabel:
+        id: label
+        text: lorem.paragraph()
+        size_hint: 1, None
+        height: self.texture_size[1]
+    BoxLayout:
+        id: layout
+        spacing: root.width - button2.width - button.width - dp(30)
+        MDRectangleFlatIconButton:
+            icon: 'delete'
+            id: button2
+            text: "Remove"
+            pos_hint: {"top": 1, "right": .5}
+            theme_text_color: 'Custom'
+            text_color: app.theme_cls.error_color
+            on_release:
+                toast("Deleted task")
+                app.root.ids.tasks_screen.remove_item(root.parent.parent)
+        MDRectangleFlatIconButton:
+            icon: 'check'
+            pos_hint: {"top": 1, "right": 1}
+            id: button
+            text: "Completed"
+            opacity: 1 if not root.is_completed else 0
+            disabled: root.is_completed
+            on_release:
+                toast("Well done!")
+                app.root.ids.tasks_screen.move_todo_to_done(root.parent.parent)
+    Widget:
+        id: spacer
+        size_hint_y: None
+        height: dp(15)
+
+
+
+<TasksScreen@Screen>:
+    #Images taken from Temps app
+    FloatLayout:
+        MDCard:
+            size_hint: .45, .75
+            pos_hint: {"center_x": .75, "top": .95}
+            orientation: 'vertical'
+            MDLabel:
+                text: "TO DO"
+                size_hint: 1, None
+                font_size: sp(40)
+                height: dp(40)
+                halign: 'center'
+            MDSeparator:
+            ScrollView:
+                bar_width: dp(5)
+                GridLayout:
+                    id: todo_list
+                    cols: 1
+                    size_hint_y: None
+                    height: self.minimum_height
+        MDCard:
+            size_hint: .45, .75
+            pos_hint: {"center_x": .25, "top": .95}
+            orientation: 'vertical'
+            MDLabel:
+                text: "COMPLETED"
+                size_hint: 1, None
+                font_size: sp(40)
+                height: dp(40)
+                halign: 'center'
+            MDSeparator:
+            ScrollView:
+                bar_width: dp(5)
+                GridLayout:
+                    id: done_list
+                    cols: 1
+                    size_hint_y: None
+                    height: self.minimum_height
+        BoxLayout:
+            size_hint: 1, .2
+            spacing: dp(20)
+            padding: dp(20)
+            MDCard:
+                MDFlatButton:
+                    size_hint: 1, 1
+                    color: 0,0,0,1
+                    background_normal: "images/transparent.png"
+                    text: "Back"
+                    on_release:
+                        app.load_screen("home_screen")
+            Widget:
+            Widget:
+            MDCard:
+                MDFlatButton:
+                    size_hint: 1, 1
+                    color: 0,0,0,1
+                    background_normal: "images/transparent.png"
+                    text: "Add Task"
+                    on_release:
+                        root.new_task()

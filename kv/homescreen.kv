@@ -1,0 +1,64 @@
+<HomeScreen@Screen>:
+    FloatLayout:
+        Button:
+            size_hint: None, None
+            top: root.top
+            right: root.right
+            background_down: "images/transparent.png"
+            background_normal: "images/transparent.png"
+            on_release:
+                toast("Powering off...")
+            Image:
+                pos: self.parent.pos
+                size: self.parent.size
+                source: "images/power_icon_black.png"
+                color: 1,1,1
+        MDLabel:
+            size_hint_x: 1
+            pos_hint: {"center_x": .5, "center_y": .55}
+            id: time_label
+            font_size: sp(60)
+            halign: 'center'
+        MDLabel:
+            size_hint_x: 1
+            font_size: sp(50)
+            pos_hint: {"center_x": .5, "center_y": .45}
+            id: date_label
+            halign: 'center'
+
+        BoxLayout:
+            size_hint: 1, .2
+            spacing: dp(20)
+            padding: dp(20)
+            MDCard:
+                MDFlatButton:
+                    size_hint: 1, 1
+                    color: 0,0,0,1
+                    background_normal: "images/transparent.png"
+                    text: "Weather"
+                    on_release:
+                        app.load_screen("weather_screen")
+            MDCard:
+                MDFlatButton:
+                    size_hint: 1, 1
+                    color: 0,0,0,1
+                    background_normal: "images/transparent.png"
+                    text: "News"
+                    on_release:
+                        app.load_screen("news_screen")
+            MDCard:
+                MDFlatButton:
+                    size_hint: 1, 1
+                    color: 0,0,0,1
+                    background_normal: "images/transparent.png"
+                    text: "Today's Tasks"
+                    on_release:
+                        app.load_screen("tasks_screen")
+            MDCard:
+                MDFlatButton:
+                    size_hint: 1, 1
+                    color: 0,0,0,1
+                    background_normal: "images/transparent.png"
+                    text: "Productivity"
+                    on_release:
+                        app.load_screen("productivity_screen")

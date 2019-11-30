@@ -1,0 +1,88 @@
+<NewsCard@BoxLayout>:
+    source: "images/cat.jpeg"
+    MDCard:
+        orientation: 'vertical'
+        pos_hint: {"center_x": .5, "center_y": .5}
+        size_hint: .8, .8
+        padding: dp(2)
+        spacing: dp(2)
+        BoxLayout:
+            size_hint: 1, None
+            height: text.height
+            orientation: 'horizontal'
+            Image:
+                size_hint: .25, 1
+                source: root.source
+                allow_stretch: True
+                keep_ratio: False
+            TwoLineListItem:
+                id: text
+                size_hint: .75, 1
+                text: "Lorem Ipsum"
+                secondary_text: lorem.sentence()
+        MDSeparator:
+        MDLabel:
+            size_hint: 1, .7
+            text: lorem.paragraph()
+            valign: 'top'
+            #shorten: True
+
+
+<NewsScreen@Screen>:
+    label_pos: self.width
+    FloatLayout:
+        Widget:
+            size_hint: 1, .1
+            pos: 0, root.top - self.height
+            canvas.before:
+                Color:
+                    rgba: 1,0,0,.6
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+        Label:
+            id: news_label
+            color: 0,0,0,1
+            font_size: sp(40)
+            size_hint: None, .1
+            width: self.texture_size[0]
+            pos: root.label_pos, root.top - self.height
+            text: "Attack on London Bridge leaves several wounded. One local tour guide describes the experience, as well as thoughts in his head as he rushed the attacker."
+        ScrollView:
+            size_hint: 1, .65
+            pos_hint: {"center_x": .5, "top": .85}
+            bar_width: dp(5)
+            GridLayout:
+                # This one should maybe be scrollable horizontally?
+                rows: 1
+                size_hint_x: None
+                width: self.minimum_width
+                col_default_width: '300dp'
+                col_force_default: True
+                spacing: dp(30)
+                padding: dp(30)
+                NewsCard:
+                NewsCard:
+                    source: "images/trump.jpeg"
+                NewsCard:
+                    source: "images/china.jpg"
+                NewsCard:
+                NewsCard:
+                    source: "images/trump.jpeg"
+                NewsCard:
+                    source: "images/china.jpg"
+        BoxLayout:
+            size_hint: 1, .2
+            spacing: dp(20)
+            padding: dp(20)
+            MDCard:
+                MDFlatButton:
+                    size_hint: 1, 1
+                    color: 0,0,0,1
+                    background_normal: "images/transparent.png"
+                    text: "Back"
+                    on_release:
+                        app.load_screen("home_screen")
+            Widget:
+            Widget:
+            Widget:
