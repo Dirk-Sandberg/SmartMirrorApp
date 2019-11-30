@@ -6,6 +6,7 @@ from kivymd.color_definitions import colors
 from py.homescreen import HomeScreen
 from py.newsscreen import NewsScreen
 from py.tasksscreen import TasksScreen
+from py.productivityscreen import ProductivityScreen
 from kivy.uix.screenmanager import FadeTransition
 from kivy.core.window import Window
 

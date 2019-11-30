@@ -3,7 +3,7 @@
     MDCard:
         orientation: 'vertical'
         pos_hint: {"center_x": .5, "center_y": .5}
-        size_hint: .8, .8
+        size_hint: 1, 1
         padding: dp(2)
         spacing: dp(2)
         BoxLayout:
@@ -23,7 +23,7 @@
         MDSeparator:
         MDLabel:
             size_hint: 1, .7
-            text: lorem.paragraph()
+            text: lorem.paragraph() + "\n" + lorem.paragraph()
             valign: 'top'
             #shorten: True
 

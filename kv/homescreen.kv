@@ -1,18 +1,14 @@
 <HomeScreen@Screen>:
     FloatLayout:
-        Button:
-            size_hint: None, None
-            top: root.top
-            right: root.right
-            background_down: "images/transparent.png"
-            background_normal: "images/transparent.png"
+        MDIconButton:
+            top: root.top - dp(20)
+            right: root.right - dp(20)
+            icon: 'power'
+            size: dp(100), dp(100)
+            user_font_size: sp(65)
             on_release:
                 toast("Powering off...")
-            Image:
-                pos: self.parent.pos
-                size: self.parent.size
-                source: "images/power_icon_black.png"
-                color: 1,1,1
+
         MDLabel:
             size_hint_x: 1
             pos_hint: {"center_x": .5, "center_y": .55}

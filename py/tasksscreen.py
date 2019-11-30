@@ -75,8 +75,8 @@ class TasksScreen(Screen):
 
     def create_todos(self, *args):
         names_contacts = (
-            'Laundry', 'Study for SEIS 610', 'Call Patrick', 'Meal Prep')
-        dates = ('11/01/2019', '11/10/2019', '11/21/2019', '11/22/2019')
+            'Laundry', 'Study for SEIS 610', 'Call Patrick', 'Meal Prep', 'Preorder Cybertruck', 'Handle Business')
+        dates = ('11/01/19', '11/10/19', '11/21/19', '11/22/19', '11/27/19', '11/30/19')
         for i,name_contact in enumerate(names_contacts):
             content = ContentForAnimCard(callback=self.callback)
             exp_panel = MDExpansionPanel(content=content,
@@ -89,7 +89,7 @@ class TasksScreen(Screen):
     def create_dones(self, *args):
         names_contacts = (
             'Meeting with Robert', 'Project Due')
-        dates = ('11/01/2019', '11/10/2019')
+        dates = ('11/01/19', '11/10/19')
         for i, name_contact in enumerate(names_contacts):
             content = ContentForAnimCard(callback=self.callback)
             exp_panel = MDExpansionPanel(content=content,
